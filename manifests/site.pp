@@ -25,11 +25,14 @@ exec {
     group 		=> 'root',
 }
 
-exec {
-    'rubBarKeepINstaller':
-    	require	 	=> Exec['downloadBarKeepInstaller'],
-    	cwd 		=> '/tmp/barkeepDirecotry/',
-        command     => 'bash install_barkeep.sh',
-        user 		=> 'root',
-    	group 		=> 'root',
-}
+# we cant do this because the base box already have ruby and the intslalation process is 
+# asking for permissions
+# exec {
+#     'rubBarKeepINstaller':
+#     	require	 	=> Exec['downloadBarKeepInstaller'],
+#     	cwd 		=> '/tmp/barkeepDirecotry/',
+#         command     => 'bash install_barkeep.sh',
+#         user 		=> 'root',
+#     	group 		=> 'root',
+#     	timeout 	=> 0,
+# }
